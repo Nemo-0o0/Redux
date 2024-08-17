@@ -5,20 +5,21 @@ const initState = {
         priority: [],
     },
     todoList: [
-        { id: 1, name: 'Learn React', completed: false, prority: 'Medium' },
-        { id: 1, name: 'Learn React', completed: true, prority: 'Medium' },
-        { id: 1, name: 'Learn React', completed: false, prority: 'Medium' },
+        { id: 1, name: 'Learn React', completed: false, priority: 'Medium' },
+        { id: 1, name: 'Learn React', completed: true, priority: 'Medium' },
+        { id: 1, name: 'Learn React', completed: false, priority: 'Medium' },
     ]
 }
 
 const rootReducer = (state = initState, action) => {
+    console.log({ state, action })
     switch (action.type) {
         case 'todoList/addTodo':
             return {
                 ...state,
                 todoList: [
                     ...state.todoList,
-                    { id: 5, name: 'Learn football', completed: false, prority: 'Medium' }
+                    action.payload
                 ]
             }
 
